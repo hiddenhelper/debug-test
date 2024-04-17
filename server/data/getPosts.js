@@ -9,11 +9,14 @@ export default (page, sort) => {
 
   let posts;
   if (sort === 'new') {
-    posts = sortBy(Posts, 'created', true);
+    posts = Posts.sort((a, b) => new Date(b['created']) - new Date(a['created']));
+    //posts = sortBy(Posts, 'created', true);
   } else if (sort === 'old') {
-    posts = sortBy(Posts, 'created');
+    posts = Posts.sort((a, b) => new Date(a['created']) - new Date(b['created']));
+    //posts = sortBy(Posts, 'created');
   } else if (sort === 'top') {
-    posts = sortBy(Posts, 'votes', true);
+    posts = Posts.sort((a, b) => b['votes'] - a['votes']);
+    //posts = sortBy(Posts, 'votes', true);
   } else {
     posts = [...Posts];
   }
