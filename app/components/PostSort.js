@@ -41,10 +41,11 @@ export default class PostSort extends Component {
 
   state = {
     menuOpen: false,
+    selectedSort: 'Old'
   };
 
   onChangeSort = (sort) => {
-    this.setState({ menuOpen: false }, () => {
+    this.setState({ menuOpen: false, selectedSort: Options.find((option) => option.name === sort).render }, () => {
       this.props.changeSort(sort);
     });
   };
@@ -68,7 +69,7 @@ export default class PostSort extends Component {
     } = this.props;
     const sorts = Options.map((option) => {
       const className = 'option' + (option.name === sort ? ' selected' : '');
-      return (
+      return (        
         <div className={className} key={option.name} onClick={() => this.onChangeSort(option.name)}>
           <div className="dot" />
           {option.render}
@@ -95,7 +96,7 @@ export default class PostSort extends Component {
       <div className="postSort">
         <div className="text">Showing</div>
         <div className="selector" onClick={this.onOpenMenu}>
-          <div className="selectedName">{option.render}</div>
+          <div className="selectedName">{this.state.selectedSort}</div>
           <div className="icon-chevron-down">v</div>
           {this.renderDropdown()}
         </div>
