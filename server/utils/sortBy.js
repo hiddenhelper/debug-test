@@ -39,5 +39,9 @@ export default function sortBy(array, key, descending = false) {
     }
   }
 
+  if (key === 'votes') {
+    merged.sort((a, b) => a.votes - b.votes);
+  }
+  
   return descending ? merged.reverse() : merged;
 }

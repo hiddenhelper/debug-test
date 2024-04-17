@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { fetchPosts, loadPosts, recountVotes } from '../actions/posts';
+import { fetchPosts, loadPosts } from '../actions/posts';
 
 import './css/_PostList.css';
 
@@ -16,7 +16,6 @@ import './css/_PostList.css';
   (dispatch) => ({
     fetchPosts: (params) => {
       dispatch(fetchPosts(params));
-      return dispatch(recountVotes());
     },
     loadPosts: () => dispatch(loadPosts()),
   })

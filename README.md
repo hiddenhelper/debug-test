@@ -56,10 +56,18 @@ For each of the following issues:
 
 **Customer 1:** When I open the application, my posts do not load and all I see is a 'server error'.
 
+**Answer:** After conducting an analysis, it was determined that the token had expired. Consequently, a new token was generated and subsequently applied within the application.  
+
 **Customer 2:** When I click on "Top" or "Old", the selector does not update with my new selection.
+
+**Answer:** The selector fails to update the label promptly due to its current sequencing. To address this issue, I propose reorganizing the sequence of updating the selector to ensure timely label updates, even while the menu remains open. 
 
 **Customer 3:** When I sort by "Top", there are posts with only 28 votes ranking higher than posts with 180 votes!
 
+**Answer:** I observed that the data retrieved from the server is sorted based on the 'Old' and 'New' filters. Consequently, I implemented a sorting method for the 'Top' filter as well.
+
 **Customer 4:** When I page through posts, although the posts are changing, the vote count in the top left corner does not match the total count of votes of the displayed posts.
+
+**Answer:** The error originates from the frontend, where the total votes are not calculated during the data fetching process. To address this, I have incorporated a vote recount function after fetching the post data.
 
 ## 🎉 You're Done 🎉

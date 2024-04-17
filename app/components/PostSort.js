@@ -33,6 +33,7 @@ const Options = [
     },
   })
 )
+
 export default class PostSort extends Component {
   static propTypes = {
     changeSort: PropTypes.func,
@@ -44,16 +45,16 @@ export default class PostSort extends Component {
   };
 
   onChangeSort = (sort) => {
-    this.setState({ menuOpen: false }, () => {
-      this.props.changeSort(sort);
-    });
+    // this.setState({ menuOpen: false }, () => {
+    //   this.props.changeSort(sort);
+    // });
+    this.setState(this.props.changeSort(sort), () => {return this.setState({menuOpen: false})});
   };
 
   onOpenMenu = () => {
     if (this.state.menuOpen) {
       return;
     }
-
     this.setState({ menuOpen: true });
   };
 

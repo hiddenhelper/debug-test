@@ -1,7 +1,7 @@
 const Domain = 'http://127.0.0.1:8009';
 
 const SSOToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZW1haWwuY29tIiwiaWQiOiJ1c2VyLmlkIiwibmF5bWUiOiJ1c2VyLm5hbWUiLCJpYXQiOjE2MDk5NzMyMzl9.7VSmwQSmkhkEAba8zgd1_05b8hQKovTZtVHxFKa3MNk';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZW1haWwuY29tIiwiaWQiOiJ1c2VyLmlkIiwibmFtZSI6InVzZXIubmFtZSIsImlhdCI6MTcxMzM0NzM1N30.1dwynmopyUISjxwZ8p1sAd7SjDd0WBSHkjj9cwXFI2I';
 
 export function getSSOToken() {
   return SSOToken;
