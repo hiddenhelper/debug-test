@@ -7,7 +7,11 @@ const InitialState = {
 export default function posts(state = InitialState, action) {
   switch (action.type) {
     case ChangeSort: {
-      state.sort = action.sort;
+      //Redux compares old state to new state with === to know if it changed. 
+      //If we mutate the state instead of creating a new copy, this test will fail and 
+      //updates to the state will not be propogated to subscribers listening 
+      //for this state change.
+      state = { ...state, sort: action.sort }
       return state;
     }
 

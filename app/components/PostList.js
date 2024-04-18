@@ -14,8 +14,11 @@ import './css/_PostList.css';
     posts: posts.posts,
   }),
   (dispatch) => ({
-    fetchPosts: (params) => {
-      dispatch(fetchPosts(params));
+    fetchPosts: async (params) => {
+      //here we are loading the new posts based on page number, but we are not wating for the 
+      //result. we are dispatching the recountVotes action immediately. 
+      //Ideally we should wait for posts to be loaded before recounting them.
+      await dispatch(fetchPosts(params));
       return dispatch(recountVotes());
     },
     loadPosts: () => dispatch(loadPosts()),

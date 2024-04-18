@@ -8,7 +8,11 @@ export default function sortBy(array, key, descending = false) {
     if (bValue > aValue) {
       return array;
     }
-    return [array[0], array[1]];
+    //The sorting logic was incorrect.
+    //We are calling the sortBy function recursively to implement the sorting algo.
+    //But the logic used to implement the sort expects sortBy function to return the result in
+    //ascending order which was not the case here.
+    return [array[1], array[0]];
   }
 
   const mid = Math.floor(length / 2);
